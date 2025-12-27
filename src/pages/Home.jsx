@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   FiClock, FiUsers, FiAward, FiBookOpen, FiMonitor, 
@@ -10,12 +10,11 @@ import {
   FaDocker, FaPython, FaJava, FaJenkins, FaGitAlt, FaAws, FaQuoteLeft
 } from 'react-icons/fa';
 import { SiKubernetes, SiTerraform, SiAnsible, SiSelenium } from 'react-icons/si';
-import { courses, testimonials, companies } from '../data/courses';
+import { courses, testimonials } from '../data/courses';
 
 function Home() {
   const [activeFaq, setActiveFaq] = useState(null);
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
-  const alumniRef = useRef(null);
 
   // Auto-slide testimonials
   useEffect(() => {
@@ -77,7 +76,7 @@ function Home() {
 
   const faqs = [
     {
-      question: 'What are the prerequisites for joining Gamut Gurus courses?',
+      question: 'What are the prerequisites for joining Come and Learn courses?',
       answer: 'Most of our courses are beginner-friendly and require no prior programming experience. Basic computer knowledge is sufficient.'
     },
     {
@@ -99,7 +98,7 @@ function Home() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section id="home" className="pt-24 pb-16 bg-gradient-to-br from-secondary-900 via-secondary-800 to-blue-900 relative overflow-hidden">
+      <section id="home" className="pt-24 pb-16 bg-gradient-to-br from-secondary-900 via-secondary-800 to-indigo-900 relative overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{
@@ -117,8 +116,8 @@ function Home() {
               
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
                 Transform Your Career with{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-blue-400">
-                  Gamut Gurus
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-indigo-400">
+                  Come and Learn
                 </span>
               </h1>
               
@@ -155,12 +154,18 @@ function Home() {
             </div>
 
             {/* Hero Image */}
-            <div className="relative hidden lg:block">
-              <img 
-                src="https://www.gamutgurus.in/courses/LandingPageCoureses/optimized/DevOps-xl.webp"
-                alt="DevOps Training"
-                className="rounded-2xl shadow-2xl w-full"
-              />
+            <div className="relative">
+              <div className="relative overflow-hidden rounded-2xl shadow-2xl">
+                <img 
+                  src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=600&fit=crop&q=80"
+                  alt="IT Training and Education"
+                  className="w-full h-auto object-cover"
+                  onError={(e) => {
+                    e.target.src = 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&h=600&fit=crop&q=80';
+                  }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-pink-500/20 to-indigo-600/20"></div>
+              </div>
               
               {/* Floating Cards */}
               <div className="absolute -top-4 -right-4 bg-white p-4 rounded-xl shadow-lg animate-float">
@@ -208,72 +213,89 @@ function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-secondary-800 mb-4">Popular Courses</h2>
+            <h2 className="text-4xl font-bold text-secondary-800 mb-4">Explore Our Courses</h2>
             <p className="text-secondary-500 max-w-2xl mx-auto">
-              Choose from our industry-leading training programs designed to get you job-ready in today's competitive tech landscape.
+              Transform your career with hands-on training from industry experts. Master in-demand skills with real-world projects and get 100% placement support to land your dream job.
             </p>
           </div>
 
           {/* Courses Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {popularCourses.map((course) => (
-              <div key={course.id} className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-secondary-100">
+              <div key={course.id} className="group relative bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border-2 border-transparent hover:border-purple-200">
+                {/* Gradient Background Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-50/0 via-pink-50/0 to-indigo-50/0 group-hover:from-purple-50/50 group-hover:via-pink-50/30 group-hover:to-indigo-50/50 transition-all duration-500 pointer-events-none"></div>
+                
                 {/* Course Image */}
-                <div className="h-52 relative overflow-hidden">
+                <div className="h-56 relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent z-10"></div>
                   <img 
                     src={course.image} 
                     alt={course.title}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   />
-                  <span className="absolute top-4 right-4 bg-orange-500 text-white px-4 py-1.5 rounded-full text-sm font-semibold">
-                    Popular
+                  <span className="absolute top-4 right-4 z-20 bg-gradient-to-r from-orange-500 to-pink-500 text-white px-4 py-1.5 rounded-full text-sm font-bold shadow-lg animate-pulse">
+                    ⭐ Popular
                   </span>
+                  {/* Rating Badge */}
+                  <div className="absolute top-4 left-4 z-20 bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-full flex items-center gap-1 shadow-lg">
+                    <FiStar className="text-amber-500 fill-amber-500" />
+                    <span className="text-sm font-bold text-gray-800">{course.rating}</span>
+                  </div>
                 </div>
 
                 {/* Course Content */}
-                <div className="p-6">
+                <div className="p-6 relative z-10">
+                  {/* Title */}
+                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-600 group-hover:to-pink-600 transition-all duration-300">
+                    {course.title}
+                  </h3>
+                  
+                  {/* Description */}
+                  <p className="text-gray-600 text-sm mb-4 line-clamp-2 leading-relaxed">{course.description}</p>
+
                   {/* Skills */}
                   <div className="flex flex-wrap gap-2 mb-4">
-                    {course.skills.slice(0, 3).map((skill, idx) => (
+                    {course.skills.slice(0, 2).map((skill, idx) => (
                       <span 
                         key={idx}
-                        className="px-3 py-1.5 bg-slate-100 text-secondary-600 rounded-md text-sm font-medium border border-secondary-200"
+                        className="px-3 py-1 bg-gradient-to-r from-purple-100 to-pink-100 text-purple-700 rounded-lg text-xs font-semibold border border-purple-200"
                       >
                         {skill}
                       </span>
                     ))}
+                    {course.skills.length > 2 && (
+                      <span className="px-3 py-1 bg-gradient-to-r from-indigo-100 to-purple-100 text-indigo-700 rounded-lg text-xs font-semibold border border-indigo-200">
+                        +{course.skills.length - 2} more
+                      </span>
+                    )}
                   </div>
 
-                  {/* Title */}
-                  <h3 className="text-xl font-bold text-secondary-800 mb-2">{course.title}</h3>
-                  
-                  {/* Description */}
-                  <p className="text-secondary-500 text-sm mb-4 line-clamp-2">{course.description}</p>
-
-                  {/* Meta */}
-                  <div className="flex items-center justify-between text-sm text-secondary-500 mb-4 pt-4 border-t border-secondary-100">
-                    <span className="flex items-center gap-1.5">
-                      <FiClock className="text-secondary-400" />
-                      {course.duration}
-                    </span>
-                    <span className="flex items-center gap-1.5">
-                      <FiUsers className="text-secondary-400" />
-                      {course.students}
-                    </span>
-                    <span className="flex items-center gap-1.5 text-amber-500">
-                      <FiStar className="fill-current" />
-                      {course.rating}
-                    </span>
+                  {/* Meta Info */}
+                  <div className="flex items-center justify-between mb-4 pb-4 border-b border-gray-200">
+                    <div className="flex items-center gap-4">
+                      <span className="flex items-center gap-1.5 text-gray-600 text-sm">
+                        <FiClock className="text-purple-500" />
+                        {course.duration}
+                      </span>
+                      <span className="flex items-center gap-1.5 text-gray-600 text-sm">
+                        <FiUsers className="text-pink-500" />
+                        {course.students}
+                      </span>
+                    </div>
                   </div>
 
                   {/* CTA Button */}
                   <Link 
                     to={`/course/${course.id}`}
-                    className="flex items-center justify-center gap-2 w-full py-3 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-semibold rounded-xl transition-all duration-300 hover:from-primary-600 hover:to-primary-700 hover:shadow-lg"
+                    className="flex items-center justify-center gap-2 w-full py-3 bg-gradient-to-r from-purple-600 via-pink-500 to-indigo-600 text-white font-semibold rounded-xl transition-all duration-300 hover:from-purple-700 hover:via-pink-600 hover:to-indigo-700 hover:shadow-lg hover:scale-105 transform"
                   >
                     <FiArrowRight /> Learn More
                   </Link>
                 </div>
+
+                {/* Decorative Corner */}
+                <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-purple-500/10 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               </div>
             ))}
           </div>
@@ -289,45 +311,12 @@ function Home() {
         </div>
       </section>
 
-      {/* Our Alumni Work At Section */}
-      <section className="py-16 bg-slate-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-secondary-800 mb-4">Our Alumni Work At</h2>
-            <p className="text-secondary-500">Join professionals working at top companies</p>
-          </div>
-
-          {/* Auto-sliding companies */}
-          <div className="overflow-hidden" ref={alumniRef}>
-            <div className="flex animate-scroll-slow gap-8">
-              {[...companies, ...companies].map((company, index) => (
-                <div 
-                  key={index}
-                  className="flex-shrink-0 w-40 h-32 bg-white rounded-xl shadow-sm flex flex-col items-center justify-center gap-3 border border-secondary-100 hover:shadow-md transition-all"
-                >
-                  {company.logo ? (
-                    <div className="text-4xl font-bold text-blue-600 tracking-tighter" style={{ fontFamily: 'serif' }}>
-                      IBM
-                    </div>
-                  ) : (
-                    <div className={`w-14 h-14 ${company.color} rounded-lg flex items-center justify-center text-white font-bold text-lg`}>
-                      {company.abbr}
-                    </div>
-                  )}
-                  <span className="text-secondary-600 font-medium text-sm">{company.name}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Why Choose Us */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <span className="text-primary-500 font-semibold text-sm uppercase tracking-wider">Why Choose Us</span>
-            <h2 className="text-4xl font-bold text-secondary-800 mt-2">The Gamut Gurus Advantage</h2>
+            <h2 className="text-4xl font-bold text-secondary-800 mt-2">The Come and Learn Advantage</h2>
             <p className="text-secondary-500 max-w-2xl mx-auto mt-4">
               We are committed to providing quality training that transforms careers with our unique approach to IT education.
             </p>
@@ -348,7 +337,7 @@ function Home() {
       </section>
 
       {/* Success Stories - Auto Sliding */}
-      <section className="py-20 bg-gradient-to-br from-secondary-900 via-secondary-800 to-blue-900 relative overflow-hidden">
+      <section className="py-20 bg-gradient-to-br from-secondary-900 via-secondary-800 to-indigo-900 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{
             backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
@@ -439,10 +428,12 @@ function Home() {
               { icon: <FiAward />, number: '14+', label: 'Years Experience' },
               { icon: <FiTrendingUp />, number: '95%', label: 'Placement Rate' },
             ].map((stat, index) => (
-              <div key={index}>
-                <div className="text-4xl mb-2 opacity-80">{stat.icon}</div>
-                <div className="text-4xl font-bold mb-1">{stat.number}</div>
-                <div className="text-white/80">{stat.label}</div>
+              <div key={index} className="flex flex-col items-center">
+                <div className="flex items-center justify-center mb-3 h-12">
+                  <div className="text-4xl opacity-90">{stat.icon}</div>
+                </div>
+                <div className="text-4xl font-bold mb-2">{stat.number}</div>
+                <div className="text-white/90 text-sm">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -477,13 +468,13 @@ function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-primary-600 to-blue-700">
+      <section className="py-20 bg-gradient-to-br from-purple-600 via-pink-600 to-indigo-700">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
             Ready to Start Your IT Career Journey?
           </h2>
           <p className="text-white/80 text-lg mb-8 max-w-2xl mx-auto">
-            Join thousands of successful professionals who transformed their careers with Gamut Gurus.
+            Join thousands of successful professionals who transformed their careers with Come and Learn.
             Book a free demo class today!
           </p>
           <div className="flex flex-wrap justify-center gap-4">

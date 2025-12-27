@@ -29,14 +29,20 @@ function Navbar() {
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-white shadow-md py-2' : 'bg-white py-4'
+      isScrolled 
+        ? 'bg-white/95 backdrop-blur-md shadow-lg py-2 border-b border-purple-200' 
+        : 'bg-gradient-to-r from-purple-50 via-pink-50 to-indigo-50 backdrop-blur-sm py-4 border-b border-purple-100'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
-            <span className="font-logo text-3xl gradient-text">
-              GamutGurus
+            <span className={`text-2xl md:text-3xl font-bold tracking-tight transition-all duration-300 ${
+              location.pathname === '/' 
+                ? 'bg-gradient-to-r from-purple-600 via-pink-500 to-indigo-600 bg-clip-text text-transparent'
+                : 'bg-gradient-to-r from-purple-600 via-pink-500 to-indigo-600 bg-clip-text text-transparent'
+            }`}>
+              Come and Learn
             </span>
           </Link>
 
@@ -46,16 +52,13 @@ function Navbar() {
               <Link
                 key={link.name}
                 to={link.path}
-                className={`relative font-medium transition-colors duration-300 ${
+                className={`relative font-medium transition-all duration-300 px-4 py-2 rounded-lg ${
                   isActive(link.path)
-                    ? 'text-primary-500' 
-                    : 'text-secondary-700 hover:text-primary-500'
+                    ? 'bg-gradient-to-r from-purple-600 via-pink-500 to-indigo-600 text-white shadow-md' 
+                    : 'text-secondary-700 hover:text-purple-600 hover:bg-purple-50'
                 }`}
               >
                 {link.name}
-                {isActive(link.path) && (
-                  <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary-500 rounded-full"></span>
-                )}
               </Link>
             ))}
           </div>
@@ -63,11 +66,11 @@ function Navbar() {
           {/* Social Icons */}
           <div className="hidden md:flex items-center gap-4">
             {[
-              { Icon: FaFacebookF, url: 'https://facebook.com/gamutgurus' },
-              { Icon: FaTwitter, url: 'https://twitter.com/gamutgurus' },
-              { Icon: FaLinkedinIn, url: 'https://linkedin.com/company/gamutgurus' },
-              { Icon: FaInstagram, url: 'https://instagram.com/gamutgurus' },
-              { Icon: FaYoutube, url: 'https://youtube.com/@gamutgurus' },
+              { Icon: FaFacebookF, url: 'https://facebook.com/comeandlearn' },
+              { Icon: FaTwitter, url: 'https://twitter.com/comeandlearn' },
+              { Icon: FaLinkedinIn, url: 'https://linkedin.com/company/comeandlearn' },
+              { Icon: FaInstagram, url: 'https://instagram.com/comeandlearn' },
+              { Icon: FaYoutube, url: 'https://youtube.com/@comeandlearn' },
             ].map(({ Icon, url }, index) => (
               <a
                 key={index}
@@ -98,8 +101,10 @@ function Navbar() {
                 <Link
                   key={link.name}
                   to={link.path}
-                  className={`font-medium ${
-                    isActive(link.path) ? 'text-primary-500' : 'text-secondary-700'
+                  className={`font-medium px-4 py-2 rounded-lg transition-all duration-300 ${
+                    isActive(link.path) 
+                      ? 'bg-gradient-to-r from-purple-600 via-pink-500 to-indigo-600 text-white' 
+                      : 'text-secondary-700 hover:bg-purple-50'
                   }`}
                   onClick={() => setMobileMenuOpen(false)}
                 >

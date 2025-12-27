@@ -1,6 +1,6 @@
-# Gamut Gurus - IT Training Institute Website
+# Come and Learn - IT Training Institute Website
 
-A modern, responsive multi-page website for Gamut Gurus, an IT training institute offering industry-focused courses with 100% placement support.
+A modern, responsive multi-page website for Come and Learn, an IT training institute offering industry-focused courses with 100% placement support.
 
 ## Features
 

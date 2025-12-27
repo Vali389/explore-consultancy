@@ -13,7 +13,7 @@ This course covers everything from version control and CI/CD pipelines to contai
     popular: true,
     price: '₹45,000',
     skills: ['AWS', 'Docker', 'Kubernetes', 'Jenkins', 'Terraform', 'Ansible'],
-    image: 'https://www.gamutgurus.in/courses/LandingPageCoureses/optimized/DevOps-xl.webp',
+    image: 'https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=600&fit=crop&q=80',
     curriculum: [
       { week: '1-2', topic: 'Linux Fundamentals & Shell Scripting' },
       { week: '3-4', topic: 'Version Control with Git & GitHub' },
@@ -37,7 +37,7 @@ This course prepares you for AWS DevOps certifications while providing hands-on 
     popular: false,
     price: '₹50,000',
     skills: ['AWS', 'CloudFormation', 'CodePipeline', 'CodeBuild', 'ECS', 'Lambda'],
-    image: 'https://www.gamutgurus.in/courses/LandingPageCoureses/optimized/AWSDevOps-xl.webp',
+    image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=600&fit=crop',
     curriculum: [
       { week: '1-2', topic: 'AWS Fundamentals & IAM' },
       { week: '3-4', topic: 'EC2, VPC & Networking' },
@@ -61,7 +61,7 @@ This course covers Azure Pipelines, Repos, Boards, and integrates with Azure clo
     popular: false,
     price: '₹50,000',
     skills: ['Azure', 'ARM Templates', 'Pipelines', 'Azure DevOps', 'AKS', 'Azure Functions'],
-    image: 'https://www.gamutgurus.in/courses/LandingPageCoureses/optimized/AzureDevOps-xl.webp',
+    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=600&fit=crop',
     curriculum: [
       { week: '1-2', topic: 'Azure Fundamentals & Portal' },
       { week: '3-4', topic: 'Azure DevOps Organization Setup' },
@@ -85,7 +85,7 @@ You'll master MLOps tools and frameworks while understanding the DevOps practice
     popular: true,
     price: '₹65,000',
     skills: ['MLOps', 'AI', 'Kubernetes', 'MLflow', 'Kubeflow', 'TensorFlow Serving'],
-    image: 'https://www.gamutgurus.in/courses/LandingPageCoureses/optimized/MLOpsDevOpsAI-xl.webp',
+    image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&h=600&fit=crop',
     curriculum: [
       { week: '1-3', topic: 'Python & ML Fundamentals' },
       { week: '4-6', topic: 'DevOps for ML: Version Control & CI/CD' },
@@ -109,7 +109,7 @@ You'll work with real datasets, build production-ready models, and understand th
     popular: true,
     price: '₹75,000',
     skills: ['Python', 'TensorFlow', 'Deep Learning', 'PyTorch', 'Computer Vision', 'NLP'],
-    image: 'https://www.gamutgurus.in/courses/LandingPageCoureses/optimized/AIML-xl.webp',
+    image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=600&fit=crop',
     curriculum: [
       { week: '1-4', topic: 'Python Programming & NumPy, Pandas' },
       { week: '5-8', topic: 'Machine Learning Fundamentals' },
@@ -133,7 +133,7 @@ This course emphasizes practical skills with hands-on projects using real-world 
     popular: false,
     price: '₹70,000',
     skills: ['Python', 'Pandas', 'Scikit-learn', 'SQL', 'Tableau', 'Statistics'],
-    image: 'https://www.gamutgurus.in/courses/LandingPageCoureses/optimized/DataScience-xl.webp',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop',
     curriculum: [
       { week: '1-4', topic: 'Python & Statistical Foundations' },
       { week: '5-8', topic: 'Data Wrangling with Pandas' },
@@ -157,7 +157,7 @@ This course prepares you for Java certifications and sets the foundation for Ful
     popular: false,
     price: '₹35,000',
     skills: ['Java', 'OOP', 'Algorithms', 'Collections', 'Multithreading', 'JDBC'],
-    image: 'https://www.gamutgurus.in/courses/LandingPageCoureses/optimized/JavaProgramming-xl.webp',
+    image: 'https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=800&h=600&fit=crop',
     curriculum: [
       { week: '1-2', topic: 'Java Basics & Syntax' },
       { week: '3-4', topic: 'Object-Oriented Programming' },
@@ -181,7 +181,7 @@ Python opens doors to web development, data science, automation, and AI - making
     popular: false,
     price: '₹30,000',
     skills: ['Python', 'OOP', 'Algorithms', 'Data Structures', 'File Handling', 'APIs'],
-    image: 'https://www.gamutgurus.in/courses/LandingPageCoureses/optimized/PythonProgramming-xl.webp',
+    image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&h=600&fit=crop',
     curriculum: [
       { week: '1', topic: 'Python Basics & Data Types' },
       { week: '2', topic: 'Control Flow & Functions' },
@@ -205,7 +205,7 @@ This course covers backend development with Spring Boot, frontend with Angular/R
     popular: true,
     price: '₹80,000',
     skills: ['Java', 'Spring Boot', 'Angular', 'React', 'MySQL', 'Microservices'],
-    image: 'https://www.gamutgurus.in/courses/LandingPageCoureses/optimized/JavaFullStack-xl.webp',
+    image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=600&fit=crop',
     curriculum: [
       { week: '1-4', topic: 'Core Java & Advanced Java' },
       { week: '5-8', topic: 'Spring Framework & Spring Boot' },
@@ -229,7 +229,7 @@ This course covers Django for backend, React for frontend, and essential DevOps 
     popular: true,
     price: '₹75,000',
     skills: ['Python', 'Django', 'React', 'PostgreSQL', 'REST APIs', 'Docker'],
-    image: 'https://www.gamutgurus.in/courses/LandingPageCoureses/optimized/PythonFullStack-xl.webp',
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop',
     curriculum: [
       { week: '1-4', topic: 'Python Programming Mastery' },
       { week: '5-8', topic: 'Django Web Framework' },
@@ -253,7 +253,7 @@ From SEO to paid advertising, social media to email marketing - master all aspec
     popular: false,
     price: '₹40,000',
     skills: ['SEO', 'SEM', 'Social Media', 'Google Ads', 'Analytics', 'Content Marketing'],
-    image: 'https://www.gamutgurus.in/courses/LandingPageCoureses/optimized/DigitalMarketing-xl.webp',
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop',
     curriculum: [
       { week: '1-4', topic: 'Digital Marketing Fundamentals' },
       { week: '5-8', topic: 'SEO & Content Strategy' },
@@ -277,7 +277,7 @@ You'll gain hands-on experience with industry-leading tools like Selenium, Cypre
     popular: true,
     price: '₹55,000',
     skills: ['Selenium', 'Cypress', 'Playwright', 'Postman', 'RestAssured', 'Cucumber', 'Jenkins', 'JMeter'],
-    image: 'https://www.gamutgurus.in/courses/LandingPageCoureses/optimized/SoftwareTesting-xl.webp',
+    image: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&h=600&fit=crop',
     toolStack: [
       { name: 'Selenium', description: 'Industry-leading automation tool' },
       { name: 'Cypress', description: 'Modern end-to-end testing framework' },
@@ -333,7 +333,7 @@ export const testimonials = [
   {
     name: 'Rajesh Kumar',
     role: 'DevOps Engineer at Amazon',
-    text: 'The DevOps training at Gamut Gurus was exceptional! The hands-on labs with Docker and Kubernetes helped me crack my interview at Amazon. The trainers are truly industry experts with real-world experience.',
+    text: 'The DevOps training at Come and Learn was exceptional! The hands-on labs with Docker and Kubernetes helped me crack my interview at Amazon. The trainers are truly industry experts with real-world experience.',
     avatar: 'RK',
     rating: 5,
     image: 'https://randomuser.me/api/portraits/men/32.jpg'

@@ -1,4 +1,5 @@
 import { useParams, Link, useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 import { 
   FiClock, FiUsers, FiStar, FiArrowRight, FiCheck, 
   FiCalendar, FiAward, FiPlay, FiDownload, FiPhone 
@@ -9,6 +10,11 @@ function CourseDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
   const course = courses.find(c => c.id === parseInt(id));
+
+  // Scroll to top when course ID changes
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [id]);
 
   if (!course) {
     return (
@@ -34,7 +40,7 @@ function CourseDetail() {
   return (
     <div className="min-h-screen bg-slate-50 pt-20">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-secondary-900 via-secondary-800 to-blue-900 py-16 relative overflow-hidden">
+      <section className="bg-gradient-to-br from-secondary-900 via-secondary-800 to-indigo-900 py-16 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{
             backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
@@ -150,7 +156,7 @@ function CourseDetail() {
                     {course.toolStack.map((tool, idx) => (
                       <div 
                         key={idx}
-                        className="p-4 bg-gradient-to-br from-primary-50 to-blue-50 rounded-xl border border-primary-100"
+                        className="p-4 bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl border border-purple-100"
                       >
                         <h3 className="font-bold text-secondary-800 mb-1">{tool.name}</h3>
                         <p className="text-sm text-secondary-500">{tool.description}</p>
@@ -321,12 +327,15 @@ function CourseDetail() {
                         {relCourse.rating}
                       </span>
                     </div>
-                    <Link 
-                      to={`/course/${relCourse.id}`}
-                      className="flex items-center justify-center gap-2 w-full py-3 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-semibold rounded-xl hover:from-primary-600 hover:to-primary-700 transition-all"
+                    <button 
+                      onClick={() => {
+                        navigate(`/course/${relCourse.id}`);
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                      }}
+                      className="flex items-center justify-center gap-2 w-full py-3 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-semibold rounded-xl hover:from-primary-600 hover:to-primary-700 transition-all cursor-pointer"
                     >
                       <FiArrowRight /> View Details
-                    </Link>
+                    </button>
                   </div>
                 </div>
               ))}

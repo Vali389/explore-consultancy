@@ -54,7 +54,7 @@ function About() {
 
   const technologies = [
     { name: 'AWS', icon: <FaAws />, color: 'text-orange-500' },
-    { name: 'Docker', icon: <FaDocker />, color: 'text-blue-500' },
+    { name: 'Docker', icon: <FaDocker />, color: 'text-indigo-500' },
     { name: 'Jenkins', icon: <FaJenkins />, color: 'text-red-500' },
     { name: 'GitHub', icon: <FaGithub />, color: 'text-gray-800' },
     { name: 'Python', icon: <FaPython />, color: 'text-yellow-500' },
@@ -64,7 +64,7 @@ function About() {
   ];
 
   const milestones = [
-    { year: '2010', title: 'Founded', description: 'Gamut Gurus started with a vision to provide quality IT training' },
+    { year: '2010', title: 'Founded', description: 'Come and Learn started with a vision to provide quality IT training' },
     { year: '2013', title: '1000+ Students', description: 'Crossed the milestone of training 1000 students' },
     { year: '2016', title: 'Online Launch', description: 'Launched online training programs for global reach' },
     { year: '2018', title: '100+ Partners', description: 'Built network of 100+ hiring partners' },
@@ -90,7 +90,7 @@ function About() {
   return (
     <div className="min-h-screen bg-white pt-20">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-secondary-900 via-secondary-800 to-blue-900 py-20 relative overflow-hidden">
+      <section className="bg-gradient-to-br from-secondary-900 via-secondary-800 to-indigo-900 py-20 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{
             backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
@@ -103,7 +103,7 @@ function About() {
               <FiAward /> Since 2010 - 14+ Years of Excellence
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-              About <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-blue-400">Gamut Gurus</span>
+              About <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-indigo-400">Come and Learn</span>
             </h1>
             <p className="text-xl text-secondary-300 leading-relaxed">
               India's premier IT training institute, empowering professionals since 2010 with 
@@ -118,10 +118,12 @@ function About() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-white">
             {stats.map((stat, index) => (
-              <div key={index}>
-                <div className="text-3xl mb-2 opacity-80">{stat.icon}</div>
-                <div className="text-3xl md:text-4xl font-bold mb-1">{stat.number}</div>
-                <div className="text-white/80 text-sm">{stat.label}</div>
+              <div key={index} className="flex flex-col items-center">
+                <div className="flex items-center justify-center mb-3 h-12">
+                  <div className="text-4xl opacity-90">{stat.icon}</div>
+                </div>
+                <div className="text-3xl md:text-4xl font-bold mb-2">{stat.number}</div>
+                <div className="text-white/90 text-sm">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -139,7 +141,7 @@ function About() {
               </h2>
               <div className="space-y-4 text-secondary-600 leading-relaxed">
                 <p>
-                  Gamut Gurus was founded in 2010 with a simple mission: to bridge the gap between 
+                  Come and Learn was founded in 2010 with a simple mission: to bridge the gap between 
                   academic education and industry requirements. What started as a small training center 
                   in Bangalore has grown into one of India's most trusted IT training institutes.
                 </p>
@@ -220,7 +222,7 @@ function About() {
       <section className="py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <span className="text-primary-500 font-semibold text-sm uppercase tracking-wider">Why Gamut Gurus</span>
+            <span className="text-primary-500 font-semibold text-sm uppercase tracking-wider">Why Come and Learn</span>
             <h2 className="text-4xl font-bold text-secondary-800 mt-2">Why Students Choose Us</h2>
             <p className="text-secondary-500 max-w-2xl mx-auto mt-4">
               What sets us apart from other training institutes
@@ -275,7 +277,7 @@ function About() {
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-secondary-900 to-blue-900 rounded-3xl p-8 text-white">
+            <div className="bg-gradient-to-br from-secondary-900 to-indigo-900 rounded-3xl p-8 text-white">
               <h3 className="text-2xl font-bold mb-6">Technologies We Cover</h3>
               <div className="grid grid-cols-4 gap-4">
                 {technologies.map((tech, index) => (
@@ -453,12 +455,12 @@ function About() {
       </section>
 
       {/* Testimonial */}
-      <section className="py-20 bg-gradient-to-br from-secondary-900 via-secondary-800 to-blue-900">
+      <section className="py-20 bg-gradient-to-br from-secondary-900 via-secondary-800 to-indigo-900">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <FaQuoteLeft className="text-5xl text-primary-400 mx-auto mb-8" />
             <p className="text-2xl text-white leading-relaxed mb-8">
-              "{testimonials[0]?.text || 'The DevOps training at Gamut Gurus was exceptional! The hands-on labs with Docker and Kubernetes helped me crack my interview at Amazon.'}"
+              "{testimonials[0]?.text || 'The DevOps training at Come and Learn was exceptional! The hands-on labs with Docker and Kubernetes helped me crack my interview at Amazon.'}"
             </p>
             <div className="flex items-center justify-center gap-4">
               <div className="w-16 h-16 bg-primary-500 rounded-full flex items-center justify-center text-white font-bold text-xl">
@@ -477,7 +479,7 @@ function About() {
       <section className="py-16 bg-gradient-to-r from-primary-500 to-primary-600">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">
-            Ready to Join Gamut Gurus?
+            Ready to Join Come and Learn?
           </h2>
           <p className="text-white/80 mb-8">
             Start your journey to a successful IT career today. Book a free demo class!

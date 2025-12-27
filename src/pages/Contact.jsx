@@ -56,7 +56,7 @@ function Contact() {
       icon: <FiMapPin className="text-2xl" />, 
       title: 'Visit Us', 
       content: 'Kundalahalligate, Varthur Main Rd, Bengaluru - 560066',
-      link: 'https://maps.google.com/?q=Gamut+Gurus+Bangalore'
+      link: 'https://maps.google.com/?q=Come+and+Learn+Bangalore'
     },
     { 
       icon: <FiPhone className="text-2xl" />, 
@@ -67,8 +67,8 @@ function Contact() {
     { 
       icon: <FiMail className="text-2xl" />, 
       title: 'Email Us', 
-      content: 'info@gamutgurus.com',
-      link: 'mailto:info@gamutgurus.com'
+      content: 'info@comeandlearn.com',
+      link: 'mailto:info@comeandlearn.com'
     },
     { 
       icon: <FiClock className="text-2xl" />, 
@@ -79,18 +79,18 @@ function Contact() {
   ];
 
   const whyContactUs = [
-    { icon: <FiBookOpen />, title: 'Free Demo Class', desc: 'Experience our teaching quality', color: 'from-cyan-500 to-blue-500' },
+    { icon: <FiBookOpen />, title: 'Free Demo Class', desc: 'Experience our teaching quality', color: 'from-purple-500 to-pink-500' },
     { icon: <FiUsers />, title: 'Expert Counseling', desc: 'Personalized career guidance', color: 'from-emerald-500 to-teal-500' },
     { icon: <FiAward />, title: '100% Placement', desc: 'Guaranteed job assistance', color: 'from-orange-500 to-pink-500' },
     { icon: <FiHeadphones />, title: '24/7 Support', desc: 'Always here for you', color: 'from-purple-500 to-indigo-500' },
   ];
 
   const socialLinks = [
-    { icon: <FaFacebookF />, url: 'https://facebook.com/gamutgurus', color: 'hover:bg-blue-600' },
-    { icon: <FaTwitter />, url: 'https://twitter.com/gamutgurus', color: 'hover:bg-sky-500' },
-    { icon: <FaInstagram />, url: 'https://instagram.com/gamutgurus', color: 'hover:bg-pink-500' },
-    { icon: <FaLinkedinIn />, url: 'https://linkedin.com/company/gamutgurus', color: 'hover:bg-blue-700' },
-    { icon: <FaYoutube />, url: 'https://youtube.com/@gamutgurus', color: 'hover:bg-red-600' },
+    { icon: <FaFacebookF />, url: 'https://facebook.com/comeandlearn', color: 'hover:bg-purple-600' },
+    { icon: <FaTwitter />, url: 'https://twitter.com/comeandlearn', color: 'hover:bg-sky-500' },
+    { icon: <FaInstagram />, url: 'https://instagram.com/comeandlearn', color: 'hover:bg-pink-500' },
+    { icon: <FaLinkedinIn />, url: 'https://linkedin.com/company/comeandlearn', color: 'hover:bg-indigo-700' },
+    { icon: <FaYoutube />, url: 'https://youtube.com/@comeandlearn', color: 'hover:bg-red-600' },
   ];
 
   const totalSlides = Math.ceil(testimonials.length / 3);
@@ -100,7 +100,7 @@ function Contact() {
       {/* HERO SECTION with Dynamic Animations */}
       <section className="relative min-h-[100vh] overflow-hidden">
         {/* Animated Gradient Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950">
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-indigo-950 to-slate-950">
           {/* Animated Gradient Mesh */}
           <div className="absolute inset-0 opacity-50">
             <div 
@@ -149,7 +149,7 @@ function Contact() {
           <div className="absolute top-20 left-[10%] w-20 h-20 border border-cyan-500/20 rotate-45 animate-float" />
           <div className="absolute top-40 right-[15%] w-16 h-16 border border-purple-500/20 rounded-full animate-float" style={{ animationDelay: '1s' }} />
           <div className="absolute bottom-32 left-[20%] w-12 h-12 border border-teal-500/30 animate-float" style={{ animationDelay: '2s' }} />
-          <div className="absolute top-1/3 right-[25%] w-24 h-24 border border-blue-500/15 rotate-12 animate-float" style={{ animationDelay: '0.5s' }} />
+          <div className="absolute top-1/3 right-[25%] w-24 h-24 border border-purple-500/15 rotate-12 animate-float" style={{ animationDelay: '0.5s' }} />
           <div className="absolute bottom-1/4 right-[30%] w-8 h-8 bg-cyan-500/10 rounded-full animate-pulse" />
           <div className="absolute top-1/2 left-[5%] w-6 h-6 bg-purple-500/10 rounded-full animate-pulse" style={{ animationDelay: '1.5s' }} />
 
@@ -189,7 +189,7 @@ function Contact() {
             </div>
             <h1 className="text-5xl md:text-7xl font-bold mb-6">
               <span className="text-white">Get in </span>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400">Touch</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-indigo-400">Touch</span>
             </h1>
             <p className="text-slate-400 text-lg md:text-xl max-w-2xl mx-auto">
               Ready to transform your career? Reach out and let's discuss your goals.
@@ -201,11 +201,11 @@ function Contact() {
             {/* Contact Form Card */}
             <div className="relative group">
               {/* Glow Effect */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 rounded-3xl blur-xl opacity-20 group-hover:opacity-40 transition-opacity duration-500" />
+              <div className="absolute -inset-1 bg-gradient-to-r from-purple-500 via-pink-500 to-indigo-500 rounded-3xl blur-xl opacity-20 group-hover:opacity-40 transition-opacity duration-500" />
               
               <div className="relative bg-slate-900/80 backdrop-blur-xl rounded-3xl p-8 border border-slate-700/50">
                 <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-                  <span className="w-10 h-10 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-xl flex items-center justify-center">
+                  <span className="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center">
                     <FiMail className="text-white" />
                   </span>
                   Send us a Message
@@ -297,7 +297,7 @@ function Contact() {
 
                     <button
                       type="submit"
-                      className="w-full py-4 bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-bold rounded-xl hover:from-cyan-600 hover:to-blue-600 transition-all transform hover:scale-[1.02] hover:shadow-lg hover:shadow-cyan-500/25 flex items-center justify-center gap-2"
+                      className="w-full py-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold rounded-xl hover:from-purple-600 hover:to-pink-600 transition-all transform hover:scale-[1.02] hover:shadow-lg hover:shadow-purple-500/25 flex items-center justify-center gap-2"
                     >
                       <FiSend /> Send Message
                     </button>
@@ -318,7 +318,7 @@ function Contact() {
                     rel={info.link?.startsWith('http') ? 'noopener noreferrer' : undefined}
                     className={`group p-5 bg-slate-900/60 backdrop-blur-sm border border-slate-700/50 rounded-2xl hover:border-cyan-500/50 transition-all hover:-translate-y-1 ${info.link ? 'cursor-pointer' : ''}`}
                   >
-                    <div className="w-12 h-12 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-xl flex items-center justify-center text-cyan-400 mb-3 group-hover:scale-110 transition-transform">
+                    <div className="w-12 h-12 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-xl flex items-center justify-center text-purple-400 mb-3 group-hover:scale-110 transition-transform">
                       {info.icon}
                     </div>
                     <h3 className="font-semibold text-white mb-1">{info.title}</h3>
@@ -364,7 +364,7 @@ function Contact() {
               </div>
 
               {/* Video CTA */}
-              <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-purple-900/50 to-blue-900/50 border border-purple-500/20 p-6">
+              <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-purple-900/50 to-indigo-900/50 border border-purple-500/20 p-6">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/10 rounded-full blur-2xl" />
                 <div className="relative flex items-center gap-4">
                   <div className="w-14 h-14 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center cursor-pointer hover:scale-110 transition-transform shadow-lg shadow-purple-500/30">
@@ -436,7 +436,7 @@ function Contact() {
                             "{testimonial.text}"
                           </p>
                           <div className="flex items-center gap-4">
-                            <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-full flex items-center justify-center text-white font-bold">
+                            <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white font-bold">
                               {testimonial.name?.charAt(0) || 'U'}
                             </div>
                             <div className="flex-1">
@@ -532,7 +532,7 @@ function Contact() {
                 allowFullScreen=""
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Gamut Gurus Location"
+                title="Come and Learn Location"
               ></iframe>
             </div>
           </div>
@@ -566,7 +566,7 @@ function Contact() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-cyan-600 via-blue-600 to-purple-600 relative overflow-hidden">
+      <section className="py-16 bg-gradient-to-r from-purple-600 via-pink-600 to-indigo-600 relative overflow-hidden">
         {/* Animated Background */}
         <div className="absolute inset-0">
           <div className="absolute top-0 left-1/4 w-64 h-64 bg-white/10 rounded-full blur-3xl animate-pulse" />
