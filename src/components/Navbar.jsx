@@ -30,18 +30,14 @@ function Navbar() {
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       isScrolled 
-        ? 'bg-white/95 backdrop-blur-md shadow-lg py-2 border-b border-purple-200' 
-        : 'bg-gradient-to-r from-purple-50 via-pink-50 to-indigo-50 backdrop-blur-sm py-4 border-b border-purple-100'
+        ? 'bg-white/95 backdrop-blur-md shadow-lg py-2 border-b border-gray-200' 
+        : 'bg-white backdrop-blur-sm py-4 border-b border-gray-100'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
-            <span className={`text-2xl md:text-3xl font-bold tracking-tight transition-all duration-300 ${
-              location.pathname === '/' 
-                ? 'bg-gradient-to-r from-purple-600 via-pink-500 to-indigo-600 bg-clip-text text-transparent'
-                : 'bg-gradient-to-r from-purple-600 via-pink-500 to-indigo-600 bg-clip-text text-transparent'
-            }`}>
+            <span className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-sky-600 via-blue-600 to-indigo-600 bg-clip-text text-transparent tracking-tight">
               Come and Learn
             </span>
           </Link>
@@ -54,8 +50,8 @@ function Navbar() {
                 to={link.path}
                 className={`relative font-medium transition-all duration-300 px-4 py-2 rounded-lg ${
                   isActive(link.path)
-                    ? 'bg-gradient-to-r from-purple-600 via-pink-500 to-indigo-600 text-white shadow-md' 
-                    : 'text-secondary-700 hover:text-purple-600 hover:bg-purple-50'
+                    ? 'bg-gradient-to-r from-sky-600 via-blue-600 to-indigo-600 text-white shadow-lg' 
+                    : 'text-gray-700 hover:text-sky-600 hover:bg-sky-50'
                 }`}
               >
                 {link.name}
@@ -77,7 +73,7 @@ function Navbar() {
                 href={url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-secondary-500 hover:text-primary-500 transition-colors duration-300"
+                className="text-gray-600 hover:text-black transition-colors duration-300"
               >
                 <Icon className="text-lg" />
               </a>
@@ -86,7 +82,7 @@ function Navbar() {
 
           {/* Mobile Menu Button */}
           <button 
-            className="md:hidden p-2 text-secondary-700"
+            className="md:hidden p-2 text-gray-700"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             {mobileMenuOpen ? <FiX className="text-2xl" /> : <FiMenu className="text-2xl" />}
@@ -95,7 +91,7 @@ function Navbar() {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden mt-4 pb-4 border-t border-secondary-100">
+          <div className="md:hidden mt-4 pb-4 border-t border-gray-200">
             <div className="flex flex-col gap-4 pt-4">
               {navLinks.map((link) => (
                 <Link
@@ -103,8 +99,8 @@ function Navbar() {
                   to={link.path}
                   className={`font-medium px-4 py-2 rounded-lg transition-all duration-300 ${
                     isActive(link.path) 
-                      ? 'bg-gradient-to-r from-purple-600 via-pink-500 to-indigo-600 text-white' 
-                      : 'text-secondary-700 hover:bg-purple-50'
+                      ? 'bg-gradient-to-r from-sky-600 via-blue-600 to-indigo-600 text-white shadow-lg' 
+                      : 'text-gray-700 hover:text-sky-600 hover:bg-sky-50'
                   }`}
                   onClick={() => setMobileMenuOpen(false)}
                 >

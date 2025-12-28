@@ -103,7 +103,7 @@ function About() {
               <FiAward /> Since 2010 - 14+ Years of Excellence
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-              About <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-indigo-400">Come and Learn</span>
+              About <span className="text-white">Come and Learn</span>
             </h1>
             <p className="text-xl text-secondary-300 leading-relaxed">
               India's premier IT training institute, empowering professionals since 2010 with 

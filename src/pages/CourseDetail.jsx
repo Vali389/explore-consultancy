@@ -156,7 +156,7 @@ function CourseDetail() {
                     {course.toolStack.map((tool, idx) => (
                       <div 
                         key={idx}
-                        className="p-4 bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl border border-purple-100"
+                        className="p-4 bg-gray-50 rounded-xl border border-gray-200"
                       >
                         <h3 className="font-bold text-secondary-800 mb-1">{tool.name}</h3>
                         <p className="text-sm text-secondary-500">{tool.description}</p>
@@ -288,10 +288,10 @@ function CourseDetail() {
                     Speak with our counselor to find the right course for your career goals.
                   </p>
                   <a 
-                    href="tel:+919627662769"
+                    href="tel:+9198667632270"
                     className="inline-flex items-center gap-2 text-white font-semibold"
                   >
-                    <FiPhone /> +91 96276 62769
+                    <FiPhone /> +91 98667 63227
                   </a>
                 </div>
               </div>

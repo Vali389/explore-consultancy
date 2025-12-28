@@ -37,7 +37,7 @@ function Courses() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-indigo-400">Courses</span>
+              Our <span className="text-white">Courses</span>
             </h1>
             <p className="text-secondary-300 text-lg max-w-2xl mx-auto mb-8">
               Industry-leading training programs designed to transform your career. 
@@ -52,7 +52,7 @@ function Courses() {
                 placeholder="Search courses, skills, or technologies..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-12 pr-4 py-4 rounded-xl bg-white/10 border border-white/20 text-white placeholder-secondary-400 focus:outline-none focus:border-purple-400 focus:ring-2 focus:ring-purple-400/20"
+                className="w-full pl-12 pr-4 py-4 rounded-xl bg-white/10 border border-white/20 text-white placeholder-secondary-400 focus:outline-none focus:border-white focus:ring-2 focus:ring-white/20"
               />
             </div>
           </div>
@@ -70,8 +70,8 @@ function Courses() {
                 onClick={() => setActiveTab(filter.key)}
                 className={`px-5 py-2.5 rounded-full font-medium transition-all duration-300 ${
                   activeTab === filter.key
-                    ? 'bg-gradient-to-r from-purple-600 via-pink-500 to-indigo-600 text-white shadow-lg shadow-purple-500/30'
-                    : 'bg-white text-secondary-600 border border-secondary-200 hover:border-purple-500 hover:text-purple-600'
+                    ? 'bg-black text-white shadow-lg'
+                    : 'bg-white text-secondary-600 border border-secondary-200 hover:border-black hover:text-black'
                 }`}
               >
                 {filter.label}
@@ -86,7 +86,7 @@ function Courses() {
           <div className="mb-8">
             <p className="text-secondary-500">
               Showing <span className="font-semibold text-secondary-800">{filteredCourses.length}</span> courses
-              {searchQuery && <span> for "<span className="text-purple-600 font-semibold">{searchQuery}</span>"</span>}
+              {searchQuery && <span> for "<span className="text-black font-semibold">{searchQuery}</span>"</span>}
             </p>
           </div>
 
@@ -94,9 +94,9 @@ function Courses() {
           {filteredCourses.length > 0 ? (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {filteredCourses.map((course) => (
-                <div key={course.id} className="group relative bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border-2 border-transparent hover:border-purple-200">
+                <div key={course.id} className="group relative bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border-2 border-transparent hover:border-gray-200">
                   {/* Gradient Background Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-purple-50/0 via-pink-50/0 to-indigo-50/0 group-hover:from-purple-50/50 group-hover:via-pink-50/30 group-hover:to-indigo-50/50 transition-all duration-500 pointer-events-none"></div>
+                  <div className="absolute inset-0 bg-gray-50/0 group-hover:bg-gray-50/50 transition-all duration-500 pointer-events-none"></div>
                   
                   {/* Course Image */}
                   <div className="h-56 relative overflow-hidden">
@@ -112,7 +112,7 @@ function Courses() {
                       </span>
                     )}
                     <div className="absolute bottom-4 left-4 z-20">
-                      <span className="bg-gradient-to-r from-purple-600 to-pink-500 text-white px-4 py-2 rounded-full text-sm font-semibold capitalize shadow-lg backdrop-blur-sm">
+                      <span className="bg-black text-white px-4 py-2 rounded-full text-sm font-semibold capitalize shadow-lg backdrop-blur-sm">
                         {course.category === 'ai' ? 'AI & Data' : course.category === 'fullstack' ? 'Full Stack' : course.category}
                       </span>
                     </div>
@@ -126,7 +126,7 @@ function Courses() {
                   {/* Course Content */}
                   <div className="p-6 relative z-10">
                     {/* Title */}
-                    <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-600 group-hover:to-pink-600 transition-all duration-300">
+                    <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-black transition-all duration-300">
                       {course.title}
                     </h3>
                     
@@ -138,13 +138,13 @@ function Courses() {
                       {course.skills.slice(0, 2).map((skill, idx) => (
                         <span 
                           key={idx}
-                          className="px-3 py-1 bg-gradient-to-r from-purple-100 to-pink-100 text-purple-700 rounded-lg text-xs font-semibold border border-purple-200"
+                          className="px-3 py-1 bg-gray-100 text-gray-700 rounded-lg text-xs font-semibold border border-gray-200"
                         >
                           {skill}
                         </span>
                       ))}
                       {course.skills.length > 2 && (
-                        <span className="px-3 py-1 bg-gradient-to-r from-indigo-100 to-purple-100 text-indigo-700 rounded-lg text-xs font-semibold border border-indigo-200">
+                        <span className="px-3 py-1 bg-gray-100 text-gray-700 rounded-lg text-xs font-semibold border border-gray-200">
                           +{course.skills.length - 2} more
                         </span>
                       )}
@@ -154,7 +154,7 @@ function Courses() {
                     <div className="flex items-center justify-between mb-4 pb-4 border-b border-gray-200">
                       <div className="flex items-center gap-4">
                         <span className="flex items-center gap-1.5 text-gray-600 text-sm">
-                          <FiClock className="text-purple-500" />
+                          <FiClock className="text-gray-600" />
                           {course.duration}
                         </span>
                         <span className="flex items-center gap-1.5 text-gray-600 text-sm">
@@ -167,12 +167,12 @@ function Courses() {
                     {/* Price and CTA */}
                     <div className="flex items-center justify-between gap-3">
                       <div>
-                        <span className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">{course.price}</span>
+                        <span className="text-2xl font-bold text-black">{course.price}</span>
                         <span className="text-gray-400 text-xs ml-1">/ course</span>
                       </div>
                       <Link 
                         to={`/course/${course.id}`}
-                        className="flex items-center justify-center gap-2 px-6 py-2.5 bg-gradient-to-r from-purple-600 via-pink-500 to-indigo-600 text-white font-semibold rounded-xl transition-all duration-300 hover:from-purple-700 hover:via-pink-600 hover:to-indigo-700 hover:shadow-lg hover:scale-105 transform"
+                        className="flex items-center justify-center gap-2 px-6 py-2.5 bg-black text-white font-semibold rounded-xl transition-all duration-300 hover:bg-gray-800 hover:shadow-lg hover:scale-105 transform"
                       >
                         <span className="text-sm">View</span>
                         <FiArrowRight className="text-sm" />
@@ -181,7 +181,7 @@ function Courses() {
                   </div>
 
                   {/* Decorative Corner */}
-                  <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-purple-500/10 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div className="absolute top-0 right-0 w-20 h-20 bg-black/10 rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 </div>
               ))}
             </div>

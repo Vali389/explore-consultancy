@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom';
 import { 
   FiClock, FiUsers, FiAward, FiBookOpen, FiMonitor, 
   FiArrowRight, FiStar, FiBriefcase, FiTrendingUp, 
-  FiHeadphones, FiPlay, FiPhone, FiChevronDown,
-  FiChevronLeft, FiChevronRight
+  FiHeadphones, FiPlay, FiPhone,   FiChevronLeft, FiChevronRight
 } from 'react-icons/fi';
 import { 
   FaDocker, FaPython, FaJava, FaJenkins, FaGitAlt, FaAws, FaQuoteLeft
@@ -13,20 +12,16 @@ import { SiKubernetes, SiTerraform, SiAnsible, SiSelenium } from 'react-icons/si
 import { courses, testimonials } from '../data/courses';
 
 function Home() {
-  const [activeFaq, setActiveFaq] = useState(null);
-  const [currentTestimonial, setCurrentTestimonial] = useState(0);
+  const totalSlides = Math.ceil(testimonials.length / 3);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   // Auto-slide testimonials
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+      setCurrentSlide((prev) => (prev + 1) % totalSlides);
     }, 5000);
     return () => clearInterval(interval);
-  }, []);
-
-  const toggleFaq = (index) => {
-    setActiveFaq(activeFaq === index ? null : index);
-  };
+  }, [totalSlides]);
 
   const tools = [
     { name: 'Docker', icon: <FaDocker /> },
@@ -74,23 +69,31 @@ function Home() {
     }
   ];
 
-  const faqs = [
+  const learningPath = [
     {
-      question: 'What are the prerequisites for joining Come and Learn courses?',
-      answer: 'Most of our courses are beginner-friendly and require no prior programming experience. Basic computer knowledge is sufficient.'
+      step: '01',
+      icon: <FiBookOpen className="text-3xl" />,
+      title: 'Enroll & Get Started',
+      description: 'Choose your course and enroll. Get access to course materials and join the learning community.'
     },
     {
-      question: 'Do you provide placement assistance?',
-      answer: 'Yes, we provide 100% placement assistance. Our dedicated placement cell connects students with 500+ hiring partners including top MNCs.'
+      step: '02',
+      icon: <FiMonitor className="text-3xl" />,
+      title: 'Learn with Experts',
+      description: 'Attend live sessions with industry experts. Learn through hands-on labs and real-world projects.'
     },
     {
-      question: 'What is the batch size and timing?',
-      answer: 'We maintain small batch sizes of 15-20 students for personalized attention. We offer flexible timings with weekday and weekend batches.'
+      step: '03',
+      icon: <FiAward className="text-3xl" />,
+      title: 'Build Portfolio',
+      description: 'Complete 5+ real-time projects and build a strong portfolio that showcases your skills to employers.'
     },
     {
-      question: 'Is online training available?',
-      answer: 'Yes, we offer both online and offline training modes. Online classes are conducted live with full interaction.'
-    },
+      step: '04',
+      icon: <FiBriefcase className="text-3xl" />,
+      title: 'Get Placed',
+      description: 'Get 100% placement support with resume building, mock interviews, and connections to 500+ hiring partners.'
+    }
   ];
 
   const popularCourses = courses.filter(c => c.popular).slice(0, 6);
@@ -116,7 +119,7 @@ function Home() {
               
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
                 Transform Your Career with{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-indigo-400">
+                <span className="bg-gradient-to-r from-sky-300 via-blue-300 to-indigo-300 bg-clip-text text-transparent">
                   Come and Learn
                 </span>
               </h1>
@@ -164,7 +167,7 @@ function Home() {
                     e.target.src = 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&h=600&fit=crop&q=80';
                   }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-pink-500/20 to-indigo-600/20"></div>
+                <div className="absolute inset-0 bg-black/10"></div>
               </div>
               
               {/* Floating Cards */}
@@ -222,9 +225,9 @@ function Home() {
           {/* Courses Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {popularCourses.map((course) => (
-              <div key={course.id} className="group relative bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border-2 border-transparent hover:border-purple-200">
+              <div key={course.id} className="group relative bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border-2 border-transparent hover:border-gray-200">
                 {/* Gradient Background Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-50/0 via-pink-50/0 to-indigo-50/0 group-hover:from-purple-50/50 group-hover:via-pink-50/30 group-hover:to-indigo-50/50 transition-all duration-500 pointer-events-none"></div>
+                <div className="absolute inset-0 bg-gray-50/0 group-hover:bg-gray-50/50 transition-all duration-500 pointer-events-none"></div>
                 
                 {/* Course Image */}
                 <div className="h-56 relative overflow-hidden">
@@ -247,7 +250,7 @@ function Home() {
                 {/* Course Content */}
                 <div className="p-6 relative z-10">
                   {/* Title */}
-                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-600 group-hover:to-pink-600 transition-all duration-300">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-black transition-all duration-300">
                     {course.title}
                   </h3>
                   
@@ -259,13 +262,13 @@ function Home() {
                     {course.skills.slice(0, 2).map((skill, idx) => (
                       <span 
                         key={idx}
-                        className="px-3 py-1 bg-gradient-to-r from-purple-100 to-pink-100 text-purple-700 rounded-lg text-xs font-semibold border border-purple-200"
+                        className="px-3 py-1 bg-gray-100 text-gray-700 rounded-lg text-xs font-semibold border border-gray-200"
                       >
                         {skill}
                       </span>
                     ))}
                     {course.skills.length > 2 && (
-                      <span className="px-3 py-1 bg-gradient-to-r from-indigo-100 to-purple-100 text-indigo-700 rounded-lg text-xs font-semibold border border-indigo-200">
+                      <span className="px-3 py-1 bg-gray-100 text-gray-700 rounded-lg text-xs font-semibold border border-gray-200">
                         +{course.skills.length - 2} more
                       </span>
                     )}
@@ -275,7 +278,7 @@ function Home() {
                   <div className="flex items-center justify-between mb-4 pb-4 border-b border-gray-200">
                     <div className="flex items-center gap-4">
                       <span className="flex items-center gap-1.5 text-gray-600 text-sm">
-                        <FiClock className="text-purple-500" />
+                        <FiClock className="text-gray-600" />
                         {course.duration}
                       </span>
                       <span className="flex items-center gap-1.5 text-gray-600 text-sm">
@@ -288,14 +291,14 @@ function Home() {
                   {/* CTA Button */}
                   <Link 
                     to={`/course/${course.id}`}
-                    className="flex items-center justify-center gap-2 w-full py-3 bg-gradient-to-r from-purple-600 via-pink-500 to-indigo-600 text-white font-semibold rounded-xl transition-all duration-300 hover:from-purple-700 hover:via-pink-600 hover:to-indigo-700 hover:shadow-lg hover:scale-105 transform"
+                    className="flex items-center justify-center gap-2 w-full py-3 bg-black text-white font-semibold rounded-xl transition-all duration-300 hover:bg-gray-800 hover:shadow-lg hover:scale-105 transform"
                   >
                     <FiArrowRight /> Learn More
                   </Link>
                 </div>
 
                 {/* Decorative Corner */}
-                <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-purple-500/10 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="absolute top-0 right-0 w-20 h-20 bg-black/10 rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               </div>
             ))}
           </div>
@@ -312,24 +315,57 @@ function Home() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <span className="text-primary-500 font-semibold text-sm uppercase tracking-wider">Why Choose Us</span>
-            <h2 className="text-4xl font-bold text-secondary-800 mt-2">The Come and Learn Advantage</h2>
-            <p className="text-secondary-500 max-w-2xl mx-auto mt-4">
+      <section className="py-20 bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/30 relative overflow-hidden">
+        {/* Background Decoration */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-sky-400 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-indigo-400 rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-16">
+            <span className="inline-block px-4 py-2 bg-gradient-to-r from-sky-500 to-blue-600 text-white font-semibold text-sm uppercase tracking-wider rounded-full mb-4">
+              Why Choose Us
+            </span>
+            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-slate-800 via-blue-800 to-indigo-800 bg-clip-text text-transparent mt-4 mb-6">
+              The Come and Learn Advantage
+            </h2>
+            <p className="text-slate-600 max-w-2xl mx-auto text-lg leading-relaxed">
               We are committed to providing quality training that transforms careers with our unique approach to IT education.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {features.map((feature, index) => (
-              <div key={index} className="bg-white p-8 rounded-2xl border border-secondary-100 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center group">
-                <div className="w-20 h-20 mx-auto mb-6 bg-primary-50 rounded-full flex items-center justify-center text-primary-500 group-hover:bg-primary-500 group-hover:text-white transition-all duration-300">
-                  {feature.icon}
+              <div 
+                key={index} 
+                className="group relative bg-white p-8 rounded-3xl border border-slate-200 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 overflow-hidden"
+              >
+                {/* Gradient Background on Hover */}
+                <div className="absolute inset-0 bg-gradient-to-br from-sky-50 via-blue-50 to-indigo-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                
+                {/* Decorative Corner */}
+                <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-sky-500/10 to-indigo-500/10 rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                
+                {/* Icon Container */}
+                <div className="relative z-10">
+                  <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-sky-100 to-indigo-100 rounded-2xl flex items-center justify-center text-sky-600 group-hover:from-sky-500 group-hover:to-indigo-600 group-hover:text-white group-hover:scale-110 transition-all duration-500 shadow-lg group-hover:shadow-xl">
+                    <div className="text-3xl">
+                      {feature.icon}
+                    </div>
+                  </div>
+                  
+                  {/* Content */}
+                  <h3 className="text-xl font-bold text-slate-800 mb-3 group-hover:text-slate-900 transition-colors">
+                    {feature.title}
+                  </h3>
+                  <p className="text-slate-600 leading-relaxed group-hover:text-slate-700 transition-colors">
+                    {feature.description}
+                  </p>
                 </div>
-                <h3 className="text-xl font-bold text-secondary-800 mb-3">{feature.title}</h3>
-                <p className="text-secondary-500">{feature.description}</p>
+
+                {/* Bottom Accent Line */}
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-sky-500 via-blue-500 to-indigo-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
               </div>
             ))}
           </div>
@@ -351,35 +387,42 @@ function Home() {
           </div>
 
           {/* Testimonial Slider */}
-          <div className="relative max-w-4xl mx-auto">
+          <div className="relative max-w-7xl mx-auto">
             <div className="overflow-hidden">
               <div 
                 className="flex transition-transform duration-500 ease-in-out"
-                style={{ transform: `translateX(-${currentTestimonial * 100}%)` }}
+                style={{ transform: `translateX(-${currentSlide * 100}%)` }}
               >
-                {testimonials.map((testimonial, index) => (
-                  <div key={index} className="w-full flex-shrink-0 px-4">
-                    <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 md:p-12 border border-white/20">
-                      <FaQuoteLeft className="text-4xl text-primary-400 mb-6" />
-                      <p className="text-white text-lg md:text-xl leading-relaxed mb-8">
-                        "{testimonial.text}"
-                      </p>
-                      <div className="flex items-center gap-4">
-                        <img 
-                          src={testimonial.image} 
-                          alt={testimonial.name}
-                          className="w-16 h-16 rounded-full object-cover border-2 border-primary-400"
-                        />
-                        <div>
-                          <div className="font-bold text-white text-lg">{testimonial.name}</div>
-                          <div className="text-secondary-300">{testimonial.role}</div>
-                          <div className="flex gap-1 mt-1">
-                            {[...Array(testimonial.rating)].map((_, i) => (
-                              <FiStar key={i} className="text-amber-400 fill-current text-sm" />
-                            ))}
+                {Array.from({ length: totalSlides }).map((_, slideIndex) => (
+                  <div key={slideIndex} className="w-full flex-shrink-0">
+                    <div className="grid md:grid-cols-3 gap-6 px-2">
+                      {testimonials.slice(slideIndex * 3, slideIndex * 3 + 3).map((testimonial, index) => (
+                        <div 
+                          key={index}
+                          className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-white/20 hover:border-primary-400/50 transition-all"
+                        >
+                          <FaQuoteLeft className="text-3xl text-primary-400 mb-4" />
+                          <p className="text-white text-base md:text-lg leading-relaxed mb-6 line-clamp-4">
+                            "{testimonial.text}"
+                          </p>
+                          <div className="flex items-center gap-4">
+                            <img 
+                              src={testimonial.image} 
+                              alt={testimonial.name}
+                              className="w-12 h-12 rounded-full object-cover border-2 border-primary-400"
+                            />
+                            <div className="flex-1">
+                              <div className="font-bold text-white">{testimonial.name}</div>
+                              <div className="text-secondary-300 text-sm">{testimonial.role}</div>
+                              <div className="flex gap-1 mt-1">
+                                {[...Array(testimonial.rating)].map((_, i) => (
+                                  <FiStar key={i} className="text-amber-400 fill-current text-xs" />
+                                ))}
+                              </div>
+                            </div>
                           </div>
                         </div>
-                      </div>
+                      ))}
                     </div>
                   </div>
                 ))}
@@ -388,12 +431,12 @@ function Home() {
 
             {/* Navigation Dots */}
             <div className="flex justify-center gap-2 mt-8">
-              {testimonials.map((_, index) => (
+              {Array.from({ length: totalSlides }).map((_, index) => (
                 <button
                   key={index}
-                  onClick={() => setCurrentTestimonial(index)}
+                  onClick={() => setCurrentSlide(index)}
                   className={`w-3 h-3 rounded-full transition-all ${
-                    currentTestimonial === index 
+                    currentSlide === index 
                       ? 'bg-primary-500 w-8' 
                       : 'bg-white/30 hover:bg-white/50'
                   }`}
@@ -403,13 +446,13 @@ function Home() {
 
             {/* Arrow Navigation */}
             <button 
-              onClick={() => setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length)}
+              onClick={() => setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides)}
               className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-12 h-12 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center text-white transition-all hidden md:flex"
             >
               <FiChevronLeft className="text-2xl" />
             </button>
             <button 
-              onClick={() => setCurrentTestimonial((prev) => (prev + 1) % testimonials.length)}
+              onClick={() => setCurrentSlide((prev) => (prev + 1) % totalSlides)}
               className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-12 h-12 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center text-white transition-all hidden md:flex"
             >
               <FiChevronRight className="text-2xl" />
@@ -440,55 +483,83 @@ function Home() {
         </div>
       </section>
 
-      {/* FAQ */}
-      <section className="py-20 bg-white">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <span className="text-primary-500 font-semibold text-sm uppercase tracking-wider">FAQ</span>
-            <h2 className="text-4xl font-bold text-secondary-800 mt-2">Frequently Asked Questions</h2>
+      {/* How It Works */}
+      <section className="py-20 bg-gradient-to-br from-slate-50 to-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <span className="text-gray-600 font-semibold text-sm uppercase tracking-wider">Learning Path</span>
+            <h2 className="text-4xl font-bold text-secondary-800 mt-2 mb-4">How It Works</h2>
+            <p className="text-secondary-500 max-w-2xl mx-auto">
+              Your journey from enrollment to placement in 4 simple steps
+            </p>
           </div>
 
-          <div className="space-y-4">
-            {faqs.map((faq, index) => (
-              <div key={index} className="bg-slate-50 rounded-xl overflow-hidden border border-secondary-200">
-                <button
-                  onClick={() => toggleFaq(index)}
-                  className="w-full px-6 py-4 text-left flex items-center justify-between font-semibold text-secondary-800 hover:text-primary-500 transition-colors"
-                >
-                  {faq.question}
-                  <FiChevronDown className={`transition-transform duration-300 ${activeFaq === index ? 'rotate-180' : ''}`} />
-                </button>
-                <div className={`overflow-hidden transition-all duration-300 ${activeFaq === index ? 'max-h-40' : 'max-h-0'}`}>
-                  <p className="px-6 pb-4 text-secondary-500">{faq.answer}</p>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {learningPath.map((step, index) => (
+              <div key={index} className="relative group">
+                {/* Connection Line */}
+                {index < learningPath.length - 1 && (
+                  <div className="hidden lg:block absolute top-20 left-full w-full h-0.5 bg-gray-300 z-0" style={{ width: 'calc(100% - 2rem)', transform: 'translateX(1rem)' }}></div>
+                )}
+                
+                <div className="relative bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-200 group-hover:border-gray-400">
+                  {/* Step Number */}
+                  <div className="absolute -top-4 -left-4 w-12 h-12 bg-black rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg">
+                    {step.step}
+                  </div>
+                  
+                  {/* Icon */}
+                  <div className="w-16 h-16 mx-auto mb-4 bg-gray-100 rounded-2xl flex items-center justify-center text-gray-700 group-hover:bg-black group-hover:text-white transition-all duration-300">
+                    {step.icon}
+                  </div>
+                  
+                  {/* Content */}
+                  <h3 className="text-xl font-bold text-secondary-800 mb-3 text-center">{step.title}</h3>
+                  <p className="text-secondary-600 text-sm text-center leading-relaxed">{step.description}</p>
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* CTA */}
+          <div className="text-center mt-12">
+            <Link 
+              to="/courses"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-black text-white font-semibold rounded-xl hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl"
+            >
+              Start Your Journey <FiArrowRight />
+            </Link>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-purple-600 via-pink-600 to-indigo-700">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="py-20 bg-gradient-to-br from-sky-400 via-blue-500 to-indigo-600 relative overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+          }}></div>
+        </div>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
             Ready to Start Your IT Career Journey?
           </h2>
-          <p className="text-white/80 text-lg mb-8 max-w-2xl mx-auto">
-            Join thousands of successful professionals who transformed their careers with Come and Learn.
-            Book a free demo class today!
+          <p className="text-white/95 text-lg mb-8 max-w-2xl mx-auto">
+            Join thousands of successful professionals who transformed their careers with Come and Learn. Book a free demo class today!
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link 
               to="/contact"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-white text-primary-600 font-semibold rounded-xl hover:bg-secondary-100 transition-all"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-white text-sky-600 font-semibold rounded-xl hover:bg-gray-50 transition-all shadow-lg hover:shadow-xl hover:scale-105"
             >
               Book Free Demo <FiArrowRight />
             </Link>
             <Link 
               to="/courses"
-              className="inline-flex items-center gap-2 px-8 py-4 border-2 border-white text-white font-semibold rounded-xl hover:bg-white/10 transition-all"
+              className="inline-flex items-center gap-2 px-8 py-4 border-2 border-white text-white font-semibold rounded-xl hover:bg-white/20 transition-all hover:scale-105"
             >
-              Explore Courses
+              Explore Courses <FiArrowRight />
             </Link>
           </div>
         </div>
